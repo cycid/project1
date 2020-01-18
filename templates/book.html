@@ -1,0 +1,19 @@
+{%extends "layout.html" %}
+{% block title %} Info about {% endblock %}
+{% block action %}
+            
+       <p>Author:{{bookbook.author}}</p><p>Title:{{bookbook.title}}</p><p>Year:{{bookbook.year}}</p><p>Isbn:{{bookbook.isbn}}</p><p>Average rate in goodreads.com is :<span style="font-weight: bold; font-size: 14px">"{{rate}}"</span> with <span style="font-weight: bold; font-size: 14px">"{{count}}" </span>rates </p>
+<form action= "{{ url_for('review', isbn=bookbook.isbn) }}">
+	<div style=><textarea style="width:80%; height: 60px" type="text" name="review" placeholder="tell us few words about this book"></textarea>
+		<p><select name="rate">
+    <option></option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option></select></p>
+	<p><button>left review</button></p></div></form>
+  {% for com in reviews5 %}
+            <div style="width:18%; background-color: white; display: inline-block; border-radius: 5px"><p>User:{{ com.users }}</p><p>Rate:{{com.rating}}</p><p>{{com.comment}}</p></div>
+        {% endfor %}
+{% endblock %}

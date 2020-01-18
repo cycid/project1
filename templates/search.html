@@ -1,0 +1,6 @@
+{%extends "layout.html" %}
+{% block title %} Hello {{nn}}!!! {% endblock %}
+{% block action %}<form action="{{ url_for('logout')}}", method="POST"><button>log out</button></form> 
+<form action= "{{ url_for('result') }}", method="POST">
+	<div style="margin-left: 10px"><input style="width:80%" type="text" name="wordrequest" placeholder="type isbn, title or author">
+	<input type="submit"> </div>{% endblock %}
